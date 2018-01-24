@@ -1,0 +1,192 @@
+/*
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+*/
+
+/* Form */
+
+	form .field {
+		float: none !important;
+		width: 100% !important;
+		padding-left: 0 !important;
+	}
+
+/* Button */
+
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"],
+	button,
+	.button {
+		border: solid 2px #585858 !important;
+	}
+
+		input[type="submit"]:hover,
+		input[type="reset"]:hover,
+		input[type="button"]:hover,
+		button:hover,
+		.button:hover {
+			border-color: #f2849e !important;
+		}
+
+		input[type="submit"].special,
+		input[type="reset"].special,
+		input[type="button"].special,
+		button.special,
+		.button.special {
+			border: none !important;
+		}
+
+/*bijutu2*/
+@import "compass/css3";
+
+$dark: #35414a;
+$semilight: #86919a;
+$blue: #5aafee;
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+@font-face {
+  font-family: pfs-bold;
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/PFSquareSansPro-Bold.otf');
+}
+body {
+  background: $dark;
+}
+.drop {
+  width: 20em;
+  margin: 5em auto;
+  font-family: pfs-bold;
+  color: $semilight;
+  text-transform: uppercase;
+  position: relative;
+  transition: width 0.5s;
+  will-change: width;
+  
+  .option {
+    padding: 1em;
+    cursor: pointer;
+    background-color: #485761;
+    
+    &:not(.active) {
+      display: none;
+      opacity: 0;
+      transform: translateY(-50%);
+    }
+  }
+  
+  &.visible {
+    animation: bounce 1s;
+    width: 24em;
+    
+    &:before, &:after {
+      border-color: #fff;
+    }
+    &:before {
+      opacity: 0;
+    }
+    &:after {
+      opacity: 1;
+    }
+    
+    .option {
+      color: #fff;
+      display: block;
+    }
+  }
+  
+  &.opacity {
+    
+    .option {
+      transform: translateZ(0);
+      opacity: 1;
+      
+      @for $i from 0 to 10 {
+        &:nth-child(#{$i}) {
+          transition: opacity 0.5s 0.1s*$i, transform 0.5s 0.1s*$i;
+        }
+      }
+    }
+  }
+
+&.withBG {
+  
+  .option {
+    transition: background-color 0.1s;
+
+    &:not(.placeholder):hover {
+      background-color: $blue;
+    }
+
+    &:not(.placeholder).active {
+      background-color: $blue;
+    }
+  }
+}
+  
+  &:after, &:before {
+    content: "";
+    position: absolute;
+    top: 1.5em;
+    right: 1em;
+    width: 0.75em;
+    height: 0.75em;
+    border: 0.2em solid $semilight;
+    transform: rotate(45deg);
+    transform-origin: 50% 50%;
+    transition: opacity 0.2s;
+  }
+  &:before {
+    border-left: none;
+    border-top: none;
+    top: 1.2em;
+  }
+  &:after {
+    border-right: none;
+    border-bottom: none;
+    opacity: 0;
+  }
+}
+
+.mini-hack {
+  opacity: 0;
+  transform: translateY(-50%);
+}
+
+
+/* Tiles */
+
+	.tiles article > .image:before, .tiles article > .image:after {
+		display: none;
+	}
+
+/* Header */
+
+	#header .logo .symbol {
+		display: none;
+	}
+
+	#header nav ul li a[href="#menu"] {
+		text-indent: 0;
+		width: auto;
+		font-size: 0.8em;
+	}
+
+		#header nav ul li a[href="#menu"]:before, #header nav ul li a[href="#menu"]:after {
+			display: none;
+		}
+
+/* Footer */
+
+	#footer > .inner section {
+		width: 50%;
+		margin-left: 3em;
+	}
+
+		#footer > .inner section:first-child {
+			margin-left: 0;
+			width: 40%;
+		}
